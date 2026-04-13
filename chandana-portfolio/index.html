@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Chandana Guduru — Web Developer & AI Enthusiast</title>
+  <meta name="description"
+    content="Portfolio of Chandana Guduru, a Web Developer and AI & ML enthusiastic student exploring cloud infrastructures and elegant web solutions." />
+  <meta property="og:title" content="Chandana Guduru — Portfolio" />
+  <meta property="og:description" content="Portfolio of Chandana Guduru, shaping the future with Web Dev and AI." />
+  <meta property="og:type" content="website" />
+  <!-- CHANGE 4: Added og:image and og:url for proper link previews on WhatsApp/LinkedIn -->
+  <meta property="og:image" content="chandanaimagebackground.jpeg" />
+  <meta property="og:url" content="https://your-site-url.com" />
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            "background": "var(--bg)",
+            "on-background": "var(--on-bg)",
+            "primary": "var(--primary)",
+            "muted": "var(--muted)",
+            "border-light": "var(--border)",
+            "surface": "var(--surface)",
+          },
+          fontFamily: {
+            "headline": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Space Mono", "monospace"]
+          },
+          borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "9999px" },
+        },
+      },
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --on-bg: #000000;
+      --primary: #000000;
+      --muted: #6b7280;
+      --border: rgba(0, 0, 0, 0.1);
+      --surface: #FAFAF8;
+      --dot: rgba(0, 0, 0, 0.05);
+      --glass-bg: 250, 250, 248;
+      --glass-border: 0, 0, 0;
+    }
+
+    .dark {
+      --bg: #000000;
+      --on-bg: #FAFAF8;
+      --primary: #FAFAF8;
+      --muted: #A0A09A;
+      --border: rgba(250, 250, 248, 0.2);
+      --surface: #000000;
+      --dot: rgba(250, 250, 248, 0.1);
+      --glass-bg: 0, 0, 0;
+      --glass-border: 250, 250, 248;
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+
+    .dot-grid {
+      background-image: radial-gradient(circle, var(--dot) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    .marquee-container {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-content {
+      display: inline-block;
+      animation: marquee 30s linear infinite;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .glass-panel {
+      background: rgba(var(--glass-bg), 0.6);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid rgba(var(--glass-border), 0.1);
+    }
+
+    .glass-card {
+      background: rgba(var(--glass-bg), 0.4);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(var(--glass-border), 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      background: rgba(var(--glass-bg), 0.6);
+      border-color: rgba(var(--glass-border), 0.3);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+
+    .animate-float {
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-delayed {
+      animation: float 6s ease-in-out 3s infinite;
+    }
+
+    @keyframes blur-in {
+      0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: scale(0.95);
+      }
+
+      100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+      }
+    }
+
+    .animate-blur-in {
+      animation: blur-in 1s cubic-bezier(0.5, 0, 0, 1) forwards;
+    }
+
+    .stagger-1 {
+      animation-delay: 200ms;
+    }
+
+    .stagger-2 {
+      animation-delay: 400ms;
+    }
+
+    .stagger-3 {
+      animation-delay: 600ms;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 10rem;
+      object-fit: cover;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+
+    .project-img-placeholder {
+      width: 100%;
+      height: 10rem;
+      border-radius: 0.75rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: rgba(var(--glass-border), 0.04);
+      border: 1px dashed rgba(var(--glass-border), 0.15);
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-family: 'Space Mono', monospace;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+
+<body class="bg-background font-body text-on-background antialiased">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 w-full z-50 flex justify-center p-4 md:p-6 pointer-events-none">
+    <nav
+      class="pointer-events-auto flex items-center justify-between w-full max-w-5xl bg-background border border-border-light rounded-2xl px-6 py-3 shadow-2xl transition-all duration-300">
+      <div class="flex items-center gap-2">
+        <span class="text-sm font-label font-bold tracking-tighter text-on-background">CHANDANA</span>
+      </div>
+      <div class="hidden md:flex items-center gap-1">
+        <a class="px-4 py-2 rounded-xl text-muted font-label text-[10px] font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all duration-300"
+          href="#work">PROJECTS</a>
+        <a class="px-4 py-2 rounded-xl text-muted font-label text-[10px] font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all duration-300"
+          href="#about">ABOUT</a>
+        <a class="px-4 py-2 rounded-xl text-muted font-label text-[10px] font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all duration-300"
+          href="#skills">SKILLS</a>
+        <a class="px-4 py-2 rounded-xl text-muted font-label text-[10px] font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all duration-300"
+          href="#contact">CONTACT</a>
+        <div class="w-[1px] h-4 bg-border-light mx-2"></div>
+        <button id="theme-toggle"
+          class="p-2 rounded-xl text-muted hover:text-primary hover:bg-primary/5 transition-all duration-300"
+          aria-label="Toggle Theme">
+          <span class="material-symbols-outlined text-[18px]" id="theme-icon">light_mode</span>
+        </button>
+      </div>
+      <div class="flex md:hidden items-center gap-2">
+        <button id="theme-toggle-mobile" class="p-2 rounded-xl text-muted hover:text-primary transition-all"
+          aria-label="Toggle Theme">
+          <span class="material-symbols-outlined text-[18px]" id="theme-icon-mobile">light_mode</span>
+        </button>
+        <button id="mobile-menu-btn"
+          class="p-2 rounded-xl text-muted hover:text-primary transition-all active:scale-95">
+          <span class="material-symbols-outlined text-2xl">menu</span>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu"
+      class="hidden pointer-events-auto absolute top-20 left-4 right-4 bg-background border border-border-light rounded-3xl p-6 shadow-2xl flex-col gap-2 overflow-hidden animate-blur-in">
+      <a class="flex items-center justify-between px-6 py-4 rounded-2xl text-muted font-label text-sm font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all"
+        href="#work" onclick="closeMobileMenu()">PROJECTS <span
+          class="material-symbols-outlined text-sm">arrow_outward</span></a>
+      <a class="flex items-center justify-between px-6 py-4 rounded-2xl text-muted font-label text-sm font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all"
+        href="#about" onclick="closeMobileMenu()">ABOUT <span
+          class="material-symbols-outlined text-sm">arrow_outward</span></a>
+      <a class="flex items-center justify-between px-6 py-4 rounded-2xl text-muted font-label text-sm font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all"
+        href="#skills" onclick="closeMobileMenu()">SKILLS <span
+          class="material-symbols-outlined text-sm">arrow_outward</span></a>
+      <a class="flex items-center justify-between px-6 py-4 rounded-2xl text-muted font-label text-sm font-bold tracking-widest hover:text-primary hover:bg-primary/5 transition-all"
+        href="#contact" onclick="closeMobileMenu()">CONTACT <span
+          class="material-symbols-outlined text-sm">arrow_outward</span></a>
+    </div>
+  </header>
+
+  <!-- HERO — CHANGE 3: Changed from <header> to <section> to fix duplicate tag / SEO bug -->
+  <section class="relative min-h-screen flex flex-col justify-center px-6 md:px-24 overflow-hidden bg-[#0D1B2A]">
+    <img src="chandanaimagebackground.jpeg" alt="" onerror="this.style.display='none'"
+      class="absolute inset-0 w-full h-full object-cover object-center z-0 opacity-25 pointer-events-none" />
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0D1B2A]/70 via-[#0D1B2A]/60 to-[#0D1B2A]/80 z-0"></div>
+    <img src="chandanaimagepng.png" alt="Chandana Guduru" onerror="this.style.display='none'"
+      class="hidden md:block absolute inset-0 w-full h-full object-cover object-center z-10 pointer-events-none opacity-40 md:opacity-100" />
+    <div
+      class="relative z-20 w-full pointer-events-auto pt-24 md:pt-32 flex flex-col items-center md:items-start text-center md:text-left max-w-5xl mx-auto md:mx-0">
+      <div class="flex items-center justify-center md:justify-start gap-3 mb-6 opacity-0 animate-blur-in">
+        <span
+          class="w-2 h-2 rounded-full bg-[#FAFAF8] animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite] shadow-[0_0_10px_#FAFAF8]"></span>
+        <span class="font-label text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#FAFAF8]/90">Open to internships
+          & opportunities</span>
+      </div>
+      <div class="space-y-4 mb-8">
+        <h1 class="text-[#FAFAF8] font-bold tracking-tighter opacity-0 animate-blur-in stagger-1">
+          <span class="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl mb-2">Hi, I'm Chandana</span>
+          <span class="block text-xl sm:text-2xl md:text-4xl text-[#FAFAF8]/80 font-medium">Web Developer & AI/ML
+            Student</span>
+        </h1>
+        <p
+          class="text-[#FAFAF8]/70 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed opacity-0 animate-blur-in stagger-2">
+          I build modern web applications and explore AI & Machine Learning.
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto opacity-0 animate-blur-in stagger-3">
+        <a class="inline-flex items-center justify-center px-8 py-4 bg-[#FAFAF8] text-[#0D1B2A] font-label text-xs uppercase tracking-widest hover:bg-transparent hover:text-[#FAFAF8] border border-[#FAFAF8] transition-all duration-300 shadow-xl"
+          href="#work">
+          View Projects <span class="material-symbols-outlined ml-2 text-sm">arrow_downward</span>
+        </a>
+        <a class="inline-flex items-center justify-center px-8 py-4 border border-[#FAFAF8]/30 hover:border-[#FAFAF8] text-[#FAFAF8] font-label text-xs uppercase tracking-widest transition-all duration-300 backdrop-blur-sm bg-[#FAFAF8]/5"
+          href="Chandana Resume.pdf" target="_blank" rel="noopener noreferrer" download>
+          Get Resume <span class="material-symbols-outlined ml-2 text-sm">download</span>
+        </a>
+      </div>
+      <div class="mt-12 pt-8 border-t border-[#FAFAF8]/10 w-full md:w-auto opacity-0 animate-blur-in stagger-3">
+        <p class="font-label text-[10px] sm:text-xs tracking-widest text-[#FAFAF8]/40 uppercase">
+          4th year B.Tech CS (AI & ML) · Warangal, IN
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py-24 px-6 md:px-24 relative overflow-hidden" id="work">
+    <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="mb-16 reveal max-w-7xl mx-auto text-center md:text-left relative z-10">
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-primary">Projects</h2>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 reveal max-w-7xl mx-auto relative z-10">
+
+      <!-- Project 1 (AI Fake News Detection System) -->
+      <div class="glass-card group rounded-2xl overflow-hidden p-10 flex flex-col justify-between h-full">
+        <img src="ai-fake-news-ui.png" alt="AI Fake News Detection UI" class="project-img" />
+        <div class="flex justify-between items-start mb-6 w-full">
+          <span class="material-symbols-outlined text-primary text-3xl inline-block animate-float">fact_check</span>
+          <span class="font-label text-xs text-muted">2024</span>
+        </div>
+        <div class="mb-8 w-full">
+          <h3 class="text-2xl font-bold text-primary mb-3 tracking-tight">AI Fake News Detection System</h3>
+          <p class="text-muted text-sm leading-relaxed">
+            Detecting misinformation using Machine Learning for a more trustworthy digital world.
+          </p>
+        </div>
+        <div class="mt-auto w-full">
+          <div class="flex flex-wrap gap-2 mb-6 text-on-background">
+            <span class="px-3 py-1 bg-primary/5 rounded font-label text-[10px] uppercase font-bold border border-border-light">Python</span>
+            <span class="px-3 py-1 bg-primary/5 rounded font-label text-[10px] uppercase font-bold border border-border-light">Machine Learning</span>
+            <span class="px-3 py-1 bg-primary/5 rounded font-label text-[10px] uppercase font-bold border border-border-light">NLP</span>
+          </div>
+          <a href="https://github.com/Chandana1404" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 font-label text-xs font-bold text-primary hover:gap-3 transition-all duration-300">
+            View on GitHub <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 (PlaceMeet) -->
+      <div class="glass-card group rounded-2xl overflow-hidden p-10 flex flex-col justify-between h-full">
+        <img src="Picture2.jpg" alt="PlaceMeet Project Cover" class="project-img" />
+        <div class="flex justify-between items-start mb-6 w-full">
+          <span class="material-symbols-outlined text-primary text-3xl inline-block animate-float-delayed">groups</span>
+          <span class="font-label text-xs text-muted">2024</span>
+        </div>
+        <div class="mb-8 w-full">
+          <h3 class="text-2xl font-bold text-primary mb-3 tracking-tight">PlaceMeet — Placement Management Platform</h3>
+          <p class="text-muted text-sm leading-relaxed">
+            A centralized system to streamline campus recruitment for students, recruiters, and TPOs.
+          </p>
+        </div>
+        <div class="mt-auto w-full">
+          <div class="flex flex-wrap gap-2 mb-6 text-on-background">
+            <span
+              class="px-3 py-1 bg-primary/5 rounded font-label text-[10px] uppercase font-bold border border-border-light">React</span>
+            <span
+              class="px-3 py-1 bg-primary/5 rounded font-label text-[10px] uppercase font-bold border border-border-light">Node.js</span>
+            <span
+              class="px-3 py-1 bg-primary/5 rounded font-label text-[10px] uppercase font-bold border border-border-light">PostgreSQL</span>
+          </div>
+          <a href="https://github.com/kavyachirumalla/placemeet" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 font-label text-xs font-bold text-primary hover:gap-3 transition-all duration-300">
+            View on GitHub <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- See all on GitHub -->
+    <div class="mt-12 text-center reveal max-w-7xl mx-auto relative z-10">
+      <a href="https://github.com/Chandana1404" target="_blank" rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 font-label text-xs font-bold text-muted border border-border-light px-6 py-3 rounded-full hover:text-primary hover:border-primary/40 transition-all duration-300">
+        See all projects on GitHub <span class="material-symbols-outlined text-sm">open_in_new</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-24 px-6 md:px-24 bg-surface relative overflow-hidden" id="about">
+    <div
+      class="absolute right-0 top-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none">
+    </div>
+    <div class="max-w-7xl mx-auto reveal relative z-10 w-full">
+      <div class="mb-16 text-center md:text-left">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-primary">About</h2>
+      </div>
+      <div class="glass-panel rounded-[2.5rem] p-8 md:p-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+
+          <div class="space-y-4 text-base text-muted leading-relaxed">
+            <p>I’m a B.Tech student specializing in Artificial Intelligence & Machine Learning and a passionate Web
+              Developer.</p>
+            <p>I build clean, responsive websites and explore cloud technologies like AWS and Azure to create scalable
+              applications. I enjoy solving real-world problems by combining intuitive frontend design with powerful
+              backend logic.</p>
+            <p>Currently, I’m pursuing my degree at Vaagdevi Engineering College and actively looking for internship
+              opportunities in Web Development and AI/ML.</p>
+            <p>Beyond coding, I enjoy exploring new AI trends and working on side projects to sharpen my skills.</p>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 h-max">
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-center transition-all hover:shadow-lg">
+            <span class="material-symbols-outlined text-primary text-2xl mb-3 inline-block animate-float">school</span>
+            <p class="font-bold text-base text-primary">B.Tech (AI & ML)</p>
+            <p class="text-xs text-muted mt-1">Vaagdevi Engineering College</p>
+          </div>
+          <div class="glass-card p-6 rounded-2xl flex flex-col justify-center transition-all hover:shadow-lg">
+            <span
+              class="material-symbols-outlined text-primary text-2xl mb-3 inline-block animate-float-delayed">cloud_queue</span>
+            <p class="font-bold text-base text-primary">Cloud Architecture</p>
+            <p class="text-xs text-muted mt-1">AWS & Azure Integrations</p>
+          </div>
+          <div
+            class="glass-card p-6 rounded-2xl flex flex-col justify-center sm:col-span-2 transition-all hover:shadow-lg">
+            <span
+              class="material-symbols-outlined text-primary text-2xl mb-3 inline-block animate-float">location_on</span>
+            <p class="font-bold text-base text-primary">Warangal, IN</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="py-24 px-6 md:px-24 bg-background relative overflow-hidden" id="skills">
+    <div class="absolute -left-32 top-1/2 w-64 h-64 bg-primary/5 rounded-full blur-[80px] pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto reveal w-full z-10 relative">
+      <div class="mb-16 text-center md:text-left">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-primary">Expertise</h2>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full">
+        <!-- Languages & Tools -->
+        <div class="glass-panel rounded-3xl p-10">
+          <h4 class="font-bold text-xl text-primary mb-8 border-b border-border-light pb-4">Languages & Tools</h4>
+          <!-- CHANGE 5: Expanded skills list -->
+          <div class="flex flex-wrap gap-2.5">
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">terminal</span> Python</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">coffee</span> Java</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">code</span> C</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">web</span> HTML/CSS</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">deployed_code</span> React</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">psychology</span> Machine Learning</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">hub</span> Git & GitHub</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">storage</span> SQL</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">database</span> Node.js</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">model_training</span> TensorFlow</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">palette</span> Tailwind CSS</span>
+            <span
+              class="px-5 py-2.5 glass-card rounded-xl font-label text-xs font-semibold text-primary flex items-center gap-2"><span
+                class="material-symbols-outlined text-sm">draw</span> Figma</span>
+          </div>
+        </div>
+        <!-- Certifications -->
+        <div class="glass-panel rounded-3xl p-10">
+          <h4 class="font-bold text-xl text-primary mb-8 border-b border-border-light pb-4">Certifications</h4>
+          <div class="flex flex-col gap-4">
+            <div class="glass-card p-5 rounded-xl flex items-center justify-between">
+              <div>
+                <span class="font-bold text-sm text-primary block">AWS Cloud Practitioner</span>
+                <span class="text-xs text-muted">Amazon Web Services</span>
+              </div>
+              <span class="material-symbols-outlined text-primary text-sm">verified</span>
+            </div>
+            <div class="glass-card p-5 rounded-xl flex items-center justify-between">
+              <div>
+                <span class="font-bold text-sm text-primary block">Amazon Q Intro</span>
+                <span class="text-xs text-muted">Amazon Web Services</span>
+              </div>
+              <span class="material-symbols-outlined text-primary text-sm">verified</span>
+            </div>
+            <div class="glass-card p-5 rounded-xl flex items-center justify-between">
+              <div>
+                <span class="font-bold text-sm text-primary block">MS Azure Cloud Concepts</span>
+                <span class="text-xs text-muted">Microsoft Azure</span>
+              </div>
+              <span class="material-symbols-outlined text-primary text-sm">verified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT — CHANGE 2: Phone number removed for privacy -->
+  <section class="py-32 px-6 md:px-24 text-center bg-surface relative overflow-hidden border-t border-border-light"
+    id="contact">
+    <div class="absolute inset-0 dot-grid opacity-30"></div>
+    <div class="max-w-4xl mx-auto relative z-10 reveal">
+      <div class="glass-panel rounded-[3rem] p-12 md:p-20">
+        <h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter mb-8 text-primary">Let's Connect</h2>
+        <a class="break-all text-xl md:text-4xl font-bold text-primary hover:text-primary/70 transition-all underline decoration-primary/20 underline-offset-8"
+          href="mailto:guduruchandana6@gmail.com">
+          guduruchandana6@gmail.com
+        </a>
+        <div class="mt-16 flex flex-wrap justify-center gap-6">
+          <a class="glass-card px-8 py-4 rounded-full font-label text-xs font-bold tracking-widest text-primary flex items-center gap-3"
+            href="https://github.com/Chandana1404" target="_blank" rel="noopener noreferrer">
+            GITHUB <span class="material-symbols-outlined text-[18px]">code</span>
+          </a>
+          <a class="glass-card px-8 py-4 rounded-full font-label text-xs font-bold tracking-widest text-primary flex items-center gap-3"
+            href="https://www.linkedin.com/in/chandana-guduru-2198152a3/" target="_blank" rel="noopener noreferrer">
+            LINKEDIN <span class="material-symbols-outlined text-[18px]">connect_without_contact</span>
+          </a>
+        </div>
+        <!-- Phone number removed — privacy risk on a public site -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="w-full py-12 px-6 border-t border-border-light bg-background">
+    <div class="max-w-7xl mx-auto text-center text-xs font-label text-muted tracking-widest uppercase">
+      Chandana Guduru © 2026
+    </div>
+  </footer>
+
+  <script>
+    const htmlEl = document.documentElement;
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.classList.toggle('flex');
+    });
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+    }
+    function applyThemeIcon(isDark) {
+      const icon = isDark ? 'light_mode' : 'dark_mode';
+      const descIcon = document.getElementById('theme-icon');
+      const mobIcon = document.getElementById('theme-icon-mobile');
+      if (descIcon) descIcon.textContent = icon;
+      if (mobIcon) mobIcon.textContent = icon;
+    }
+    const isDarkInit = localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (isDarkInit) { htmlEl.classList.add('dark'); } else { htmlEl.classList.remove('dark'); }
+    applyThemeIcon(isDarkInit);
+    function toggleTheme() {
+      htmlEl.classList.toggle('dark');
+      const isDark = htmlEl.classList.contains('dark');
+      localStorage.theme = isDark ? 'dark' : 'light';
+      applyThemeIcon(isDark);
+    }
+    const deskBtn = document.getElementById('theme-toggle');
+    const mobBtn = document.getElementById('theme-toggle-mobile');
+    if (deskBtn) deskBtn.addEventListener('click', toggleTheme);
+    if (mobBtn) mobBtn.addEventListener('click', toggleTheme);
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        if (elementTop < windowHeight - 50) { reveals[i].classList.add("active"); }
+      }
+    }
+    window.addEventListener("scroll", reveal);
+    reveal();
+  </script>
+</body>
+
+</html>
